@@ -4,11 +4,11 @@
 % clearest one). Uses the analysis pipeline's own functions and saved outputs.
 clear; clc;
 root = fileparts(fileparts(fileparts(mfilename('fullpath'))));   % repository root
-addpath(fullfile(root,'codes_improved','functions','for_obtainERD'));
-addpath(fullfile(root,'codes_improved'));
+addpath(fullfile(root,'analysis','functions','preprocessing'));
+addpath(fullfile(root,'analysis'));
 config = configure_parameters();
 fig_dir = fullfile(root,'thesis','revised','images','results');
-here = fullfile(root,'thesis','analysis');
+here = fullfile(root,'thesis','figures_and_checks');
 
 % ---------- choose the example participant
 T = readtable(fullfile(here,'erd_per_participant_cpz.csv'));

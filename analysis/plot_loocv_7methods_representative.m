@@ -14,8 +14,8 @@
 % Output: <repo>/paper/figures/loocv_comparison_7methods.png
 
 clear; clc;
-addpath('functions\for_GA');
-addpath('functions\for_obtainERD');
+addpath('functions\feature_search');
+addpath('functions\preprocessing');
 config = configure_parameters();
 
 paper_fig_dir = fullfile(fileparts(pwd), 'paper', 'figures');

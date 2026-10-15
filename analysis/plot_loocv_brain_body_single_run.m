@@ -30,10 +30,10 @@ clear; close all; clc;
 MAT_FILE = 'tilecounts';
 
 % Where to save the output PNGs (defaults to all_in_one_pic)
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config    = configure_parameters();
 OUT_DIR   = fullfile(config.out_dir, 'all_in_one_pic', 'brain_body_diagnostic');
 if ~exist(OUT_DIR, 'dir'), mkdir(OUT_DIR); end

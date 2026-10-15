@@ -1,8 +1,8 @@
-% trial_by_trial_evolution.m
+% posture_across_session_unexpected_trials.m
 % Calculates trial-by-trial evolution of the foot CoP response to unexpected trials
 
 clear; close all; clc;
-addpath('functions\for_obtainERD');
+addpath('functions\preprocessing');
 config = configure_parameters();
 out_dir = config.out_dir;
 
@@ -10,7 +10,7 @@ out_dir = config.out_dir;
 load(fullfile(out_dir, 'foot', 'foot_cleaned_session_combined_filtered.mat'), 'foot_filtered');
 % Exclude participant 26 so this analysis uses the SAME N=25 cohort as the EEG
 % analyses (participant 26 was a late addition recorded after the EEG cohort was
-% locked; see TASKS.md). This guard mirrors trial_by_trial_all_features.m and was
+% locked; see TASKS.md). This guard mirrors posture_across_session.m and was
 % missing here, so temporal_evolution_data.mat -- and therefore the Bayesian
 % equivalence analysis built on it -- ran on 26 participants while the paper
 % reported N=25. Added 2026-07-25.

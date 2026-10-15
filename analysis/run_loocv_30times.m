@@ -6,10 +6,10 @@
 clear; close all; clc;
 
 %% Configuration
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 
 config = configure_parameters();
 out_dir = config.out_dir;
@@ -36,14 +36,14 @@ fprintf('Batch ID: %s\n', batch_id);
 fprintf('Save directory: %s\n', save_dir);
 fprintf('Output directory: %s\n\n', pic_out_dir);
 
-%% Load Prerequisites (same as main.m Step 6)
+%% Load Prerequisites (same as preprocess_eeg_and_foot.m Step 6)
 fprintf('Loading prerequisite data...\n');
 
 % Load tile data
 load(fullfile(out_dir, 'ga_feature', 'sub_tile.mat'), 'sub_tile');
 load(fullfile(out_dir, 'ga_feature', 'sub_tile_foot.mat'), 'sub_tile_foot');
 
-% Construct all_sub_diffs (copy from main.m lines 674-693)
+% Construct all_sub_diffs (copy from preprocess_eeg_and_foot.m lines 674-693)
 fprintf('Constructing all_sub_diffs with EEG and foot contrasts...\n');
 types = fieldnames(sub_tile.sub_1);
 type_name_order = [2 1 3 2 5 4];  % Mapping for 3 contrasts: [A1 B1 A2 B2 A3 B3]
@@ -144,10 +144,10 @@ fprintf('╚══════════════════════�
 % Analyzes every results_LOOCV_*.mat in save_dir — no batch filter.
 % Outputs: (1) LOOCV accuracy box plot, (2) tile consistency maps.
 %% Configuration
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 out_dir = config.out_dir;
 save_dir     = fullfile(out_dir, 'ga_feature_30runs');

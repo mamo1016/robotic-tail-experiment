@@ -7,8 +7,8 @@
 % Output: paper/figures/loocv_comparison_4methods.png
 
 clear; clc;
-addpath('functions\for_GA');
-addpath('functions\for_obtainERD');
+addpath('functions\feature_search');
+addpath('functions\preprocessing');
 config = configure_parameters();
 
 to_dir = fullfile(config.out_dir, 'ga_feature_30runs', 'toResult');

@@ -13,7 +13,7 @@
 % NEW STANDALONE SCRIPT — does not modify any existing files.
 
 clear; clc;
-addpath('functions\for_obtainERD');
+addpath('functions\preprocessing');
 config = configure_parameters();
 out_dir = config.out_dir;
 

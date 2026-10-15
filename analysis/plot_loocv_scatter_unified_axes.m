@@ -1,13 +1,13 @@
-%% fix_figure5_unified_axes.m  (mn-4)
+%% plot_loocv_scatter_unified_axes.m  (mn-4)
 % Regenerate the LOOCV 7-method scatter plot (Figure 5) with two-tier
 % unified axis ranges: one for the top row (unregularized methods) and
 % one for the bottom row (regularized methods).
 %
-% Run from: codes_improved
+% Run from: analysis
 
 clear; clc;
-addpath('functions\for_GA');
-addpath('functions\for_obtainERD');
+addpath('functions\feature_search');
+addpath('functions\preprocessing');
 config = configure_parameters();
 out_dir = config.out_dir;
 save_dir = fullfile(out_dir, 'ga_feature');

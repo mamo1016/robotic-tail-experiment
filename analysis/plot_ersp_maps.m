@@ -1,4 +1,4 @@
-%% plot_figure3_new_layout.m
+%% plot_ersp_maps.m
 % Regenerates Figure 3 using Option A layout (2-row x 3-column):
 %
 %   Row 1: ERSP difference heatmaps
@@ -11,14 +11,14 @@
 %   - results_LOOCV_*.mat            (GA tile selection counts)
 %
 % NEW STANDALONE SCRIPT — does not modify any existing files.
-% Run from: codes_improved
+% Run from: analysis
 %
 % Output: figures\figure3_new_layout.png
 
 clear; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\feature_search');
 config = configure_parameters();
 
 out_dir   = config.out_dir;

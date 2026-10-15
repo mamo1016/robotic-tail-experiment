@@ -9,7 +9,7 @@
 %   4. Comparison with trial-by-trial trends (optional, for next step)
 
 clear; close all; clc;
-addpath('functions\for_obtainERD');
+addpath('functions\preprocessing');
 config = configure_parameters();
 out_dir = config.out_dir;
 

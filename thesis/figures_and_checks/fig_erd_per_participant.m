@@ -1,8 +1,8 @@
 % Per-participant Surprise ERD at CPz, for the thesis (Fig. erd_per_participant).
-% The calculation is copied from codes_improved/stats_beta_erd_ttest_N25.m (STEP B, N = 25),
+% The calculation is copied from analysis/test_surprise_erd.m (STEP B, N = 25),
 % and the script stops if the group values do not reproduce the published CSV.
 clear; clc;
-addpath(fullfile(fileparts(fileparts(fileparts(mfilename('fullpath')))), 'codes_improved', 'functions', 'for_obtainERD'));
+addpath(fullfile(fileparts(fileparts(fileparts(mfilename('fullpath')))), 'analysis', 'functions', 'preprocessing'));
 config  = configure_parameters();
 out_dir = config.out_dir;
 fig_dir = fullfile(fileparts(mfilename('fullpath')), 'figures');

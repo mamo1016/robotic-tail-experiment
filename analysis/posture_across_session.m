@@ -1,4 +1,4 @@
-% trial_by_trial_all_features.m
+% posture_across_session.m
 % Trial-by-trial trend analysis for ALL 40 foot CoP features.
 %
 % Problem: each participant has a different number of trials per condition.
@@ -16,7 +16,7 @@
 % Output folder: <out_dir>/trial_evolution_40features/
 
 clear; close all; clc;
-addpath('functions\for_obtainERD');
+addpath('functions\preprocessing');
 config = configure_parameters();
 out_dir = config.out_dir;
 

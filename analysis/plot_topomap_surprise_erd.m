@@ -4,12 +4,12 @@
 % all subjects/sessions.
 %
 % NEW STANDALONE SCRIPT — does not modify any existing files.
-% Run from: codes_improved
+% Run from: analysis
 %
 % Output: figures\topomap_surprise_erd.png
 
 clear; clc;
-addpath('functions\for_obtainERD');
+addpath('functions\preprocessing');
 config = configure_parameters();
 
 %% --- Parameters ---

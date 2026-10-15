@@ -16,13 +16,13 @@
 %   Just run the script. If it was interrupted, run it again — it will
 %   resume automatically from the last checkpoint.
 %
-% Run from: codes_improved
+% Run from: analysis
 
 clear; clc;
-addpath('functions\for_GA');
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
+addpath('functions\feature_search');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
 config = configure_parameters();
 out_dir = config.out_dir;
 

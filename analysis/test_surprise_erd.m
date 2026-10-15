@@ -1,11 +1,11 @@
-%% stats_beta_erd_ttest_N25.m
+%% test_surprise_erd.m
 % Re-computes the group-level one-sample t-test on the Surprise Beta ERD
 % (Unexpected - Expected, 13-30 Hz, 0-1 s post-trigger) per channel,
 % restricted to the N = 25 EEG cohort (poor-EEG participant excluded), so
 % that N matches the GA-LOOCV coupling analysis.
 %
 % WHY THIS EXISTS
-%   stats_beta_erd_ttest.m reads ersp_ave/ (pre-exclusion) and reports
+%   test_surprise_erd_26_participants.m reads ersp_ave/ (pre-exclusion) and reports
 %   N = 26 (df = 25). The poor-EEG participant was excluded downstream,
 %   when ga_feature/sub_tile.mat was built (N = 25). This script restricts
 %   the t-test to the same participant set sub_tile represents -> N = 25.
@@ -17,13 +17,13 @@
 %   - Per-participant CPz values are printed with participant IDs so the
 %     excluded participant is visible before the N=25 t-test is computed.
 %
-% Run from: codes_improved   (MATLAB R2026a)
+% Run from: analysis   (MATLAB R2026a)
 
 clear; clc;
-addpath('functions\for_obtainERD');
+addpath('functions\preprocessing');
 config = configure_parameters();
 
-%% --- Parameters (identical to stats_beta_erd_ttest.m) ---
+%% --- Parameters (identical to test_surprise_erd_26_participants.m) ---
 out_dir         = config.out_dir;
 ersp_dir        = fullfile(out_dir, 'ersp_ave');
 

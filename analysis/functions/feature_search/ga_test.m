@@ -1,8 +1,8 @@
 %% Custom Genetic Algorithm for Feature Selection (No Toolbox Required)
 clear; clc; close all;
-addpath('functions\for_obtainERD'); % Add the 'functions' folder to MATLAB's search path
-addpath('functions\for_ersp'); % Add the 'functions' folder to MATLAB's search path
-addpath('functions\for_GA'); % Add the 'functions' folder to MATLAB's search path
+addpath('functions\preprocessing'); % Add the 'functions' folder to MATLAB's search path
+addpath('functions\ersp'); % Add the 'functions' folder to MATLAB's search path
+addpath('functions\feature_search'); % Add the 'functions' folder to MATLAB's search path
 ersp_epoch_bootstraped_store = ersp_epoch_bootstraped_store_get();
 
 

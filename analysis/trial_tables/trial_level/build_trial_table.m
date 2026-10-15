@@ -1,7 +1,7 @@
 function build_trial_table()
 % Build a single-trial table from the raw epoch files.
-% ERD replicates functions/for_ersp/ersp.m exactly (per-trial baseline, dB).
-% CoP replicates functions/for_foot/generate_foot_features.m minus the trial average.
+% ERD replicates functions/ersp/ersp.m exactly (per-trial baseline, dB).
+% CoP replicates functions/foot_pressure/generate_foot_features.m minus the trial average.
 
 ED   = 'output\epochs';
 OUT  = 'output\trial_level';

@@ -9,9 +9,9 @@
 %   control  : the same with one feature only, overall response size (RMS 0-4 s)
 clear; clc; rng(1);
 root = fileparts(fileparts(fileparts(mfilename('fullpath'))));   % repository root
-addpath(fullfile(root,'codes_improved','functions','for_obtainERD'));
+addpath(fullfile(root,'analysis','functions','preprocessing'));
 config = configure_parameters();
-here = fullfile(root,'thesis','analysis');
+here = fullfile(root,'thesis','figures_and_checks');
 fig_dir = fullfile(root,'thesis','revised','images','results');
 
 V = readtable(fullfile(config.out_dir,'trial_level','cop_corrected.csv'));

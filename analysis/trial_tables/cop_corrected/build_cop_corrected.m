@@ -13,10 +13,10 @@ function build_cop_corrected()
 % stored data_resampled_foot. Nothing downstream is trusted unless it does.
 
 here = fileparts(mfilename('fullpath'));
-root = fileparts(fileparts(here));            % codes_improved
-addpath(fullfile(root,'functions','for_obtainERD'));
-addpath(fullfile(root,'functions','for_ersp'));
-addpath(fullfile(root,'functions','for_foot'));
+root = fileparts(fileparts(here));            % analysis
+addpath(fullfile(root,'functions','preprocessing'));
+addpath(fullfile(root,'functions','ersp'));
+addpath(fullfile(root,'functions','foot_pressure'));
 
 config = configure_parameters();
 ED  = fullfile(config.out_dir,'epochs');

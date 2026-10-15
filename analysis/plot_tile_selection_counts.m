@@ -25,8 +25,8 @@
 
 clear; close all; clc;
 
-addpath('functions\for_obtainERD');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\feature_search');
 config = configure_parameters();
 
 SOURCE_FILE = 'results_LOOCV_2026-03-29_03-38.mat';

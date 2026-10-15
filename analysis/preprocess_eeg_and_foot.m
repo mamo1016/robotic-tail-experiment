@@ -12,10 +12,10 @@
 % 1. EEG Offline Signal Processing Pipeline(Epoching) %
 % ------------------------------------------------------------------------- %
 clear; close all; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 filter_para = design_filter(config);
 parallelPool_gpu_starter(config);
@@ -71,10 +71,10 @@ end
 % 2. Epoch Interpolation & ERSP Computation %
 % ------------------------------------------------------------------------- %
 clear; close all; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 out_dir = config.out_dir;
 
@@ -97,10 +97,10 @@ save(fullfile(out_dir, "boot_strap_pick_num.mat"), 'boot_strap_pick_num', '-v7.3
 % 3. EEG Bootstrapping (Fixed Split Logic) %
 % ------------------------------------------------------------------------- %
 clear; close all; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 out_dir = config.out_dir;
 % Load boot_strap_pick_num from disk
@@ -249,10 +249,10 @@ save(fullfile(out_dir, "all_in_one_pic", "avergae_bootstrap_all_sub.mat"), 'ave_
 % Loads saved grand average from disk — no recomputation needed.              %
 % ------------------------------------------------------------------------- %
 clear; close all; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 out_dir = config.out_dir;
 
@@ -296,10 +296,10 @@ fprintf('Saved: Figure 3 Top Row (a-c) Clean Version\n  → %s\n', out_path_fig3
 % Shows grand-average ERSP with only the >=50% GA consensus tiles visible.    %
 % ------------------------------------------------------------------------- %
 clear; close all; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 out_dir = config.out_dir;
 
@@ -498,10 +498,10 @@ end
 % 4. Foot Data Bottstrapping (Fixed Split Logic) %
 % ------------------------------------------------------------------------- %
 clear; close all; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 out_dir = config.out_dir;
 
@@ -626,10 +626,10 @@ end
 % 5. Format ERSP Tiles and Compute Subject - Level Differences %
 % ------------------------------------------------------------------------- %
 clear; close all; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 out_dir = config.out_dir;
 
@@ -662,10 +662,10 @@ save(fullfile(out_dir, "ga_feature", "sub_tile_foot.mat"), 'sub_tile_foot', '-v7
 % 6. Model Training & Strict Validation (LOOCV Corrected) %
 % ------------------------------------------------------------------------- %
 clear; close all; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 out_dir = config.out_dir;
 % Make sure to load the previous dependencies
@@ -716,10 +716,10 @@ fprintf('\n=== PIPELINE DEMONSTRATION COMPLETE ===\n');
 % Loads all_sub_diffs + LOOCV results from disk — no recomputation needed.    %
 % ------------------------------------------------------------------------- %
 clear; close all; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 out_dir = config.out_dir;
 
@@ -907,10 +907,10 @@ fprintf('\n=== STEP 7b COMPLETE ===\n');
 %   Both↑, Unexpected more  → graded response
 % -------------------------------------------------------------------------
 clear; close all; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 out_dir = config.out_dir;
 
@@ -1050,10 +1050,10 @@ fprintf('=== STEP 8a COMPLETE ===\n');
 % Also reports exact tile frequency boundaries for the ~21 Hz and ~24 Hz tiles.
 % -------------------------------------------------------------------------
 clear; close all; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 out_dir = config.out_dir;
 
@@ -1126,10 +1126,10 @@ fprintf('=== STEP 8b COMPLETE ===\n');
 % so also plots them separately to show whether they are frequency-dissociable.
 % -------------------------------------------------------------------------
 clear; close all; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 out_dir = config.out_dir;
 
@@ -1234,10 +1234,10 @@ fprintf('=== STEP 8c COMPLETE ===\n');
 % Also shows an ERSP heatmap restricted to the 6–15 Hz band.
 % -------------------------------------------------------------------------
 clear; close all; clc;
-addpath('functions\for_obtainERD');
-addpath('functions\for_ersp');
-addpath('functions\for_foot');
-addpath('functions\for_GA');
+addpath('functions\preprocessing');
+addpath('functions\ersp');
+addpath('functions\foot_pressure');
+addpath('functions\feature_search');
 config = configure_parameters();
 out_dir = config.out_dir;
 

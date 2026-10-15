@@ -1,4 +1,4 @@
-%% stats_beta_erd_ttest.m
+%% test_surprise_erd_26_participants.m
 % Computes group-level one-sample t-test on the Surprise Beta ERD
 % (Unexpected - Expected, 13-30 Hz, 0-1s post-trigger) per channel.
 %
@@ -11,12 +11,12 @@
 %       This script groups sessions by participant before averaging.
 %
 % NEW STANDALONE SCRIPT — does not modify any existing files.
-% Run from: codes_improved
+% Run from: analysis
 %
 % Output: printed t-stat, p-value, Cohen's d per channel (for paper text)
 
 clear; clc;
-addpath('functions\for_obtainERD');
+addpath('functions\preprocessing');
 config = configure_parameters();
 
 %% --- Parameters ---

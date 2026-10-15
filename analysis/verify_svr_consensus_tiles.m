@@ -45,8 +45,8 @@ if ~exist(output_dir, 'dir')
 end
 
 %% --- Add MATLAB paths so config + range_compute resolve -----------------
-addpath('functions/for_obtainERD');
-addpath('functions/for_ersp');
+addpath('functions/preprocessing');
+addpath('functions/ersp');
 
 config = configure_parameters();
 
