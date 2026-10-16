@@ -17,7 +17,7 @@
 %   validation run behind control_loocv.png. Its GA optimised against a null
 %   target, so its selection pattern did not represent the main analysis, and its
 %   counts (2/2/1) contradicted the caption's claim that the control contrast
-%   shows no consistent convergence. Author decision: regenerate from S3's run.
+%   shows no consistent convergence. Decision: regenerate from S3's run.
 %
 %   Earlier still, the script loaded whichever file was newest in ga_feature/,
 %   which is why the provenance had to be reconstructed after the fact. Do not

@@ -1,5 +1,4 @@
 % Tail movement measured from the experiment video (camera behind the participant, 29 fps).
-% Examiner: "robot testing data, validation results demonstrating position control performance".
 % Method: the median frame shows the tail at rest (hanging to the left). For each swing, at the
 % frame where the most pixels have become darker (tail at its right-most position), the centroid
 % of the darker pixels gives the peak angle, and the centroid of the pixels that became lighter on

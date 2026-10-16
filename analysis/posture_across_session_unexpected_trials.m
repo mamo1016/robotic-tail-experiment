@@ -53,7 +53,7 @@ end
 grand_avg = mean(all_rms, 1, 'omitnan');
 sem = std(all_rms, 0, 1, 'omitnan') ./ sqrt(sum(~isnan(all_rms), 1));
 
-% Save intermediate data for MC-3 Bayesian equivalence testing
+% Save intermediate data for the Bayesian equivalence test (bayesian_equivalence_learning.m)
 cop_rms_per_trial = all_rms;
 save(fullfile(out_dir, 'temporal_evolution_data.mat'), 'cop_rms_per_trial');
 

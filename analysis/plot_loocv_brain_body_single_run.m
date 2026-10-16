@@ -99,9 +99,9 @@ phase_ranges = {1:400, 401:800, 801:1200};
 n_methods = length(method_names);
 colors = lines(n_methods);
 
-%% ══════════════════════════════════════════════════════════════════════════
+%% ==========================================================================
 %% FIGURE A: Brain–Body Scatter (predicted vs actual, each subject = 1 dot)
-%% ══════════════════════════════════════════════════════════════════════════
+%% ==========================================================================
 n_cols = ceil(n_methods / 2);
 n_rows = 2;
 fig_a = figure('Color', 'w', 'Position', [50 50 300*n_cols 560]);
@@ -148,11 +148,11 @@ exportgraphics(fig_a, fig_a_path, 'Resolution', 300);
 fprintf('\nSaved: %s\n', fig_a_path);
 close(fig_a);
 
-%% ══════════════════════════════════════════════════════════════════════════
+%% ==========================================================================
 %% FIGURE B: Tile Selection Counts (raw fold counts, before 50% threshold)
 %% Purpose:  If counts are all low → GA is selecting very few tiles per
 %%           fold → sparsity penalty is dominating → blank consistency map
-%% ══════════════════════════════════════════════════════════════════════════
+%% ==========================================================================
 n_subs = length(results.(method_names{1}).predicted);  % = 25
 threshold = n_subs / 2;  % 50% of folds = 12.5
 

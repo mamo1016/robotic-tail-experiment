@@ -117,28 +117,28 @@ fprintf('(SVR excluded for speed. To include SVR, set EXCLUDE_SVR = false)\n\n')
 for run_idx = 1:N_RUNS
     deleteFig();
     fprintf('\n');
-    fprintf('╔════════════════════════════════════╗\n');
-    fprintf('║  Run %2d / %2d                       ║\n', run_idx, N_RUNS);
-    fprintf('╚════════════════════════════════════╝\n');
+    fprintf('+====================================+\n');
+    fprintf('|  Run %2d / %2d                       |\n', run_idx, N_RUNS);
+    fprintf('+====================================+\n');
 
     try
         % Run LOOCV with custom save directory, methods parameter, and batch ID
         [~, save_path] = LOOCV_Corrected(all_sub_diffs, foot_features, foot_labels, config, save_dir, methods_to_use, batch_id);
 
-        fprintf('✓ Run %d complete: %s\n', run_idx, save_path);
+        fprintf('Run %d complete: %s\n', run_idx, save_path);
 
         % Small pause to avoid file conflicts
         pause(0.5);
 
     catch ME
-        fprintf('✗ Run %d FAILED: %s\n', run_idx, ME.message);
+        fprintf('Run %d FAILED: %s\n', run_idx, ME.message);
         continue;
     end
 end
 
-fprintf('\n╔════════════════════════════════════╗\n');
-fprintf('║  All %d LOOCV runs complete!       ║\n', N_RUNS);
-fprintf('╚════════════════════════════════════╝\n');
+fprintf('\n+====================================+\n');
+fprintf('|  All %d LOOCV runs complete!       |\n', N_RUNS);
+fprintf('+====================================+\n');
 
 %% Post-processing: Aggregate figures from ALL saved .mat files
 % Analyzes every results_LOOCV_*.mat in save_dir — no batch filter.
@@ -244,6 +244,6 @@ fprintf('\n=== RUNNING CONSISTENCY ANALYSIS (all runs) ===\n');
 analyze_loocv_consistency(results_dir, pic_out_dir, ...
     fullfile(out_dir, 'all_in_one_pic'), fullfile(out_dir, 'ga_feature'));
 
-fprintf('\n✓ Post-processing complete.\n');
+fprintf('\nPost-processing complete.\n');
 fprintf('  Files analysed: %d\n', length(all_mat_files));
 fprintf('  Plots saved to: %s\n', pic_out_dir);

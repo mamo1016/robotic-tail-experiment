@@ -2,7 +2,7 @@
 % Bayesian equivalence test for the temporal evolution of the postural
 % response across unexpected trials.
 %
-% Addresses Reviewer MC-3: "p=0.241 does not prove rapid learning."
+% Why: a non-significant slope (p = 0.241) does not by itself show that the response is flat.
 % This script formally tests whether the observed linear slope is
 % equivalent to zero using:
 %   (1) TOST (Two One-Sided Tests) — frequentist equivalence
@@ -82,7 +82,7 @@ group_se    = group_sd / sqrt(n);
 t_obs       = group_slope / group_se;
 p_two_sided = 2 * tcdf(-abs(t_obs), n-1);
 
-fprintf('\n=== MC-3: Bayesian Equivalence Analysis ===\n');
+fprintf('\n=== Bayesian Equivalence Analysis ===\n');
 fprintf('N participants with valid slope: %d\n', n);
 fprintf('Mean slope: %.4f CoP-RMS/trial\n', group_slope);
 fprintf('SD:         %.4f\n', group_sd);
@@ -182,16 +182,14 @@ title('Bayes Factor (H0: flat slope)', 'FontSize', 10);
 set(gca, 'FontSize', 9);
 hold off;
 
-% "MC-3" is an internal reviewer-response label and must not appear in a
-% published figure.
 title(tl, 'Bayesian equivalence analysis: temporal learning slope', 'FontSize', 12);
 exportgraphics(fig, fullfile(paper_fig_dir, 'bayesian_equivalence_learning.png'), 'Resolution', 300);
 fprintf('Figure saved to: %s\n', fullfile(paper_fig_dir, 'bayesian_equivalence_learning.png'));
 
-%% --- Save text results to file (for Claude Code to read) ---
+%% --- Save text results to file ---
 results_txt = fullfile(paper_fig_dir, 'bayesian_equivalence_results.txt');
 fid = fopen(results_txt, 'w');
-fprintf(fid, '=== MC-3: Bayesian Equivalence Analysis Results ===\n');
+fprintf(fid, '=== Bayesian Equivalence Analysis Results ===\n');
 fprintf(fid, 'Date: %s\n\n', datestr(now));
 fprintf(fid, 'N subjects: %d\n', n);
 fprintf(fid, 'N trials per subject: %d\n', N_trials);

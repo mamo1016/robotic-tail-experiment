@@ -10,7 +10,7 @@
 %   when ga_feature/sub_tile.mat was built (N = 25). This script restricts
 %   the t-test to the same participant set sub_tile represents -> N = 25.
 %
-% SAFETY / AUDIT
+% CHECKS
 %   - Writes ONLY new CSVs. Never overwrites the original N=26 CSV or data.
 %   - Step A reproduces the N=26 result so it can be checked against the
 %     existing CSV (validates the ersp_ave reading is faithful).

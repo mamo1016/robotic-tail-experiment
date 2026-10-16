@@ -71,6 +71,8 @@ in the thesis.
 | `plot_erd_per_participant.m` | Draws that figure from the saved values. |
 | `fig_walkthrough.m` | Each processing stage for one typical participant, from EMG to the brain and foot measures. |
 | `trial_type_classifier.m` | Can foot pressure tell a failure trial from a normal one? Tested on participants the model has not seen. |
+| `brain_posture_relation.m` | Do participants with a larger Surprise ERD also show a larger late postural response? (Section 5.6) |
+| `posture_fdr.py` | Corrects the session-trend p-values of the 40 foot measures for multiple testing (Section 5.4). |
 | `tail_video_tracking.m` | Tail angle measured from the experiment video. |
 | `tail_video_sheets.m` | Picture sheets of each tail swing, for checking the video measurement by eye. |
 

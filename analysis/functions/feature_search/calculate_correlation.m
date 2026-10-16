@@ -53,7 +53,7 @@ function r = calculate_correlation(mask_X, mask_Y, X, Y, method)
         r = 0; return;
     end
 
-    % --- CRITICAL FIX 1: Check for "Blobbing" ---
+    % --- Check 1: "blobbing" ---
     persistent ridge_std_check_shown;
     if strcmp(method, 'ridge') && isempty(ridge_std_check_shown)
         fprintf('[RIDGE STD CHECK] std(clean_X)=%.6f, std(clean_Y)=%.6f\n', std(clean_X), std(clean_Y));

@@ -108,9 +108,9 @@ disp(summary_table);
 %% Save summary to file
 output_file = fullfile(results_dir, '..', 'average_loocv_performance_30runs.mat');
 save(output_file, 'summary_table', 'results_r', 'results_p', 'method_names');
-fprintf('\n✓ Summary saved to: %s\n', output_file);
+fprintf('\nSummary saved to: %s\n', output_file);
 
 % Also save as CSV
 csv_file = fullfile(results_dir, '..', 'average_loocv_performance_30runs.csv');
 writetable(summary_table, csv_file);
-fprintf('✓ CSV saved to: %s\n', csv_file);
+fprintf('CSV saved to: %s\n', csv_file);

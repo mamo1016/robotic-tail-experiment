@@ -1,11 +1,11 @@
-%% Export LOOCV Consistency Results for AI Analysis
+%% Export LOOCV consistency results for inspection
 % Purpose: Convert .mat files to human-readable formats (CSV, JSON, TXT)
-% so that Claude Opus can inspect and analyse the results
+% so that the results can be inspected outside MATLAB
 
 clear; close all; clc;
 
 loocv_dir = 'output/ga_feature_30runs/toResult';
-export_dir = 'output/ga_feature_30runs/export_for_ai';
+export_dir = 'output/ga_feature_30runs/export';
 
 % Create export directory if it doesn't exist
 if ~exist(export_dir, 'dir')
@@ -67,7 +67,7 @@ fprintf(fid, 'Phases: Control (tiles 1-400), Surprise (401-800), Learning (801-1
 fprintf(fid, 'Total tiles: 1200\n');
 
 fclose(fid);
-fprintf('✓ Exported to: %s\n', txt_file);
+fprintf('Exported to: %s\n', txt_file);
 
 %% Part 2: Export method metadata as JSON
 json_file = fullfile(export_dir, '02_METADATA.json');
@@ -85,7 +85,7 @@ metadata.time_bins = 20;
 
 json_text = jsonencode(metadata);
 writelines(json_text, json_file);
-fprintf('✓ Exported to: %s\n', json_file);
+fprintf('Exported to: %s\n', json_file);
 
 %% Part 3: Export first method's mask data as CSV (for inspection)
 % This shows which tiles were selected in the LOOCV results
@@ -133,9 +133,9 @@ if isfield(sample_data, 'mask_x')
     end
 
     writecell(csv_content, csv_file);
-    fprintf('✓ Exported to: %s\n', csv_file);
+    fprintf('Exported to: %s\n', csv_file);
 else
-    fprintf('⚠ Warning: No mask_x/mask_y fields in results structure\n');
+    fprintf('Warning: No mask_x/mask_y fields in results structure\n');
     fprintf('  Available fields in %s: %s\n', sample_method, strjoin(fieldnames(sample_data), ', '));
 end
 
@@ -155,14 +155,13 @@ fprintf(fid, '  Learning: tiles 801-1200\n\n');
 fprintf(fid, 'Each tile represents 1 time-frequency bin (20×20 grid per phase)\n');
 
 fclose(fid);
-fprintf('✓ Exported to: %s\n', summary_file);
+fprintf('Exported to: %s\n', summary_file);
 
 %% Display what was exported
 fprintf('\n===== EXPORT COMPLETE =====\n');
-fprintf('Files ready for Claude Opus analysis at:\n  %s\n\n', export_dir);
+fprintf('Files ready for inspection at:\n  %s\n\n', export_dir);
 fprintf('Files created:\n');
 fprintf('  1. 01_STRUCTURE_OVERVIEW.txt — Structure of results (fields, sizes)\n');
 fprintf('  2. 02_METADATA.json — Metadata (methods, phases, dimensions)\n');
 fprintf('  3. 03_SAMPLE_METHOD_MASKS.csv — Sample of selected tiles\n');
 fprintf('  4. 04_SUMMARY_STATISTICS.txt — Tile grid and phase info\n');
-fprintf('\nNext step: Share these files with Claude Opus for analysis\n');

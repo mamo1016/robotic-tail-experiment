@@ -1,8 +1,8 @@
 %% permutation_test_loocv.m  (v2 — safe version)
 % Permutation null distribution for GA-LOOCV brain-behaviour correlations.
 %
-% Addresses Reviewer MC-1: "r=0.99 is implausibly high — prove it via
-% permutation testing."
+% Why: a correlation of r = 0.99 is implausibly high, so it is compared with
+% the correlations obtained from shuffled data.
 %
 % Fixes vs v1:
 %   - Uses run_loocv_core() instead of LOOCV_Corrected() — no figures,
@@ -128,7 +128,7 @@ elapsed = toc(t_start);
 fprintf('\nAll %d permutations done in %.1f minutes.\n', N_PERM, elapsed/60);
 
 %% --- Compute empirical p-values ---
-fprintf('\n=== MC-1: Permutation Test Results ===\n');
+fprintf('\n=== Permutation Test Results ===\n');
 fprintf('%-10s  %8s  %8s  %8s  %8s\n', 'Method', 'r_obs', 'r_null_med', 'r_null_95', 'p_emp');
 fprintf('%s\n', repmat('-', 1, 54));
 
@@ -187,7 +187,7 @@ for m = 1:N_methods
     set(gca, 'FontSize', 8);
 end
 
-title(tl, sprintf('MC-1: Permutation Null Distribution (%d permutations)\nRed = observed r | Dashed = 95th percentile of null', N_PERM), ...
+title(tl, sprintf('Permutation Null Distribution (%d permutations)\nRed = observed r | Dashed = 95th percentile of null', N_PERM), ...
     'FontSize', 11);
 
 fig_path = fullfile(paper_fig_dir, 'permutation_null_distribution.png');

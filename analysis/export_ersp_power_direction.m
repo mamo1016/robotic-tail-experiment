@@ -1,12 +1,12 @@
-%% Export ERSP Power Direction Data for Claude Opus Analysis
+%% Export the power direction (increase or decrease) of the GA-selected tiles
 % Purpose: Export which tiles show power INCREASE vs DECREASE
-% to help Opus understand the mixed directionality in GA-selected tiles
+% to examine the mixed directions in the GA-selected tiles
 
 clear; close all; clc;
 
 loocv_dir = 'output/ga_feature_30runs/toResult';
 ersp_dir = 'output/all_in_one_pic';
-export_dir = 'output/ga_feature_30runs/export_for_ai';
+export_dir = 'output/ga_feature_30runs/export';
 
 % Create export directory if it doesn't exist
 if ~exist(export_dir, 'dir')
@@ -27,7 +27,7 @@ fprintf('Loading ERSP grand average...\n');
 try
     load(fullfile(ersp_dir, 'avergae_bootstrap_all_sub.mat'), 'ave_boot_average');
 catch
-    fprintf('⚠ Warning: Could not load ERSP grand average\n');
+    fprintf('Warning: Could not load ERSP grand average\n');
     ave_boot_average = [];
 end
 
@@ -75,7 +75,7 @@ end
 fprintf(fid, '\nNote: mask_x represents features selected for EEG-to-CoP prediction\n');
 fprintf(fid, 'These are binary selections from the 1200-tile feature space\n');
 fclose(fid);
-fprintf('✓ Exported to: %s\n', summary_file);
+fprintf('Exported to: %s\n', summary_file);
 
 %% Export sample tiles with ERSP directions (if ERSP data available)
 if ~isempty(ave_boot_average)
@@ -115,25 +115,25 @@ if ~isempty(ave_boot_average)
     end
 
     fclose(fid);
-    fprintf('✓ Exported to: %s\n', csv_file);
+    fprintf('Exported to: %s\n', csv_file);
 else
-    fprintf('⚠ Skipping ERSP direction export (ERSP data not available)\n');
+    fprintf('Warning: Skipping ERSP direction export (ERSP data not available)\n');
 end
 
-%% Create final AI-ready summary
-final_summary = fullfile(export_dir, 'READY_FOR_OPUS.txt');
+%% Create a summary file
+final_summary = fullfile(export_dir, 'SUMMARY.txt');
 fid = fopen(final_summary, 'w');
 
-fprintf(fid, '===== CLAUDE OPUS ANALYSIS READY =====\n\n');
+fprintf(fid, '===== SUMMARY =====\n\n');
 fprintf(fid, 'Dataset: LOOCV Consistency Results (30 independent runs)\n');
 fprintf(fid, 'Latest file: %s\n', loocv_files(end).name);
 fprintf(fid, 'Timestamp: %s\n\n', datestr(loocv_files(end).datenum));
 
 fprintf(fid, '===== KEY FINDINGS =====\n');
-fprintf(fid, '✓ 7 regression methods successfully extracted features from EEG\n');
-fprintf(fid, '✓ Feature selection uses Genetic Algorithm (GA) on 1200 EEG tiles\n');
-fprintf(fid, '✓ Tiles organized as: 400 per phase × 3 phases (Control, Surprise, Learning)\n');
-fprintf(fid, '✓ Each tile represents one time-frequency bin (20×20 grid per phase)\n\n');
+fprintf(fid, '7 regression methods successfully extracted features from EEG\n');
+fprintf(fid, 'Feature selection uses Genetic Algorithm (GA) on 1200 EEG tiles\n');
+fprintf(fid, 'Tiles organized as: 400 per phase × 3 phases (Control, Surprise, Learning)\n');
+fprintf(fid, 'Each tile represents one time-frequency bin (20×20 grid per phase)\n\n');
 
 fprintf(fid, '===== AVAILABLE EXPORT FILES =====\n');
 fprintf(fid, '1. 01_STRUCTURE_OVERVIEW.txt — Data structure explanation\n');
@@ -142,16 +142,16 @@ fprintf(fid, '3. 04_SUMMARY_STATISTICS.txt — Tile grid and phase information\n
 fprintf(fid, '4. 05_TILE_SELECTION_SUMMARY.txt — How many tiles each method selected\n');
 fprintf(fid, '5. 06_SAMPLE_TILES_WITH_ERSP_DIRECTION.csv — Sample selected tiles with ERSP info\n\n');
 
-fprintf(fid, '===== RESEARCH QUESTION FOR OPUS =====\n');
+fprintf(fid, '===== OPEN QUESTION =====\n');
 fprintf(fid, 'These results show that GA selects tile COMBINATIONS that include both:\n');
-fprintf(fid, '  • EEG tiles with POWER INCREASE\n');
-fprintf(fid, '  • EEG tiles with POWER DECREASE\n');
+fprintf(fid, '  - EEG tiles with POWER INCREASE\n');
+fprintf(fid, '  - EEG tiles with POWER DECREASE\n');
 fprintf(fid, 'in the same regression model for predicting CoP (foot center of pressure).\n\n');
 fprintf(fid, 'This is unusual because standard motor neuroscience literature typically\n');
 fprintf(fid, 'interprets motor function as alpha/beta DESYNCHRONIZATION (power decrease).\n\n');
 fprintf(fid, 'Question: How should this mixed directionality be interpreted scientifically?\n\n');
 
 fclose(fid);
-fprintf('\n✓ All exports complete!\n');
-fprintf('✓ Files are ready for Claude Opus analysis\n');
-fprintf('✓ Location: %s\n', export_dir);
+fprintf('\nAll exports complete!\n');
+fprintf('Files are ready for inspection\n');
+fprintf('Location: %s\n', export_dir);

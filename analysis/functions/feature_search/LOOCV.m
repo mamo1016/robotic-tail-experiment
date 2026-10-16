@@ -1,7 +1,6 @@
 function LOOCV(all_sub_diffs)
 % perform_LOOCV.m
 % Performs Leave-One-Out Cross-Validation (LOOCV) for GA Feature Selection
-% Author: Jane (OpenClaw)
 % Usage: Run this AFTER you have generated 'all_sub_diffs' in the main script.
 
 % clearvars -except all_sub_diffs config tile_t tile_f; 

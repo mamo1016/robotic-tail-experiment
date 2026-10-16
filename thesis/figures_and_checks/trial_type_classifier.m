@@ -1,4 +1,4 @@
-% Can foot pressure predict the trial type (tail moved vs failure)?  Examiner request (Ch 6).
+% Can foot pressure predict the trial type (tail moved vs failure)?  Thesis Section 5.5.
 % Method fixed before running:
 %   trials   : expected (cond 1) and unexpected (cond 2), participants 1-25, frac_extrap == 0
 %   features : foot side-to-side signal, baseline -0.5..0 s removed, mean in 100 ms bins from 0 to 3 s

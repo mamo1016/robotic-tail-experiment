@@ -21,7 +21,7 @@ for struct_num = 1:length(fields)
                     remove_trial(i,ch) = 1;
                 end
             end
-            % BUG (confirmed by author, 2026-08-21; NOT fixed for the 2026 submission,
+            % KNOWN ISSUE (2026-08-21; not changed for the 2026 submission,
             % because re-running would change published numbers).
             % This test should be >=1, not >1. As written, an epoch with exactly ONE
             % channel above threshold is left unrepaired. Measured across all 77 session
